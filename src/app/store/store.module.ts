@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { SharedModule } from '../shared/shared.module';
 
 import * as fromApp from './app-store/app.reducer';
+import * as fromGeo from './geo-features/geo.reducer';
 
 const optionalImports = [];
 
@@ -17,6 +18,10 @@ if ((environment as any).storeDevtools) {
 
 const StoreModuleArray = [
   StoreModule.forFeature(fromApp.appFeatureKey, fromApp.appReducer),
+  StoreModule.forFeature(
+    fromGeo.geoFeatureFeatureKey,
+    fromGeo.geoFeatureReducer
+  ),
 ];
 
 @NgModule({

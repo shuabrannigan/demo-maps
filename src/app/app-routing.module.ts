@@ -14,6 +14,13 @@ const routes: Routes = [
         (m) => m.RootPageModule
       ),
   },
+  {
+    path: 'feature-viewer',
+    loadChildren: () =>
+      import(
+        './pages/featurecollection-view/featurecollection-view.module'
+      ).then((m) => m.FeatureCollectionViewModule),
+  },
 ];
 
 @NgModule({
