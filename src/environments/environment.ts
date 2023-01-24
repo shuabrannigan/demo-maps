@@ -2,8 +2,10 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+
 export const environment = {
-  production: false
+  production: false,
+  MAPBOX_API_KEY: 'pk.eyJ1IjoicGxhdGZhcm0iLCJhIjoiY2s1NjQ3MmdtMHF2dzNqc2Jwb2VjejY2dyJ9.a0k3fY219a4LNywhNNmGDw'
 };
 
 /*
