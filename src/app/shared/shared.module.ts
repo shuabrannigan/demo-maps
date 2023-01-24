@@ -1,14 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {MatToolbarModule} from '@angular/material/toolbar';
-
-// array of material module imports.
-const MaterialModules = [MatToolbarModule]
+import { MaterialModule } from './material.module';
 
 @NgModule({
-  imports: [CommonModule, ...MaterialModules],
+  imports: [CommonModule, MaterialModule],
   declarations: [],
-  exports: [CommonModule, FormsModule, ...MaterialModules],
+  exports: [CommonModule, FormsModule, MaterialModule],
 })
 export class SharedModule {}

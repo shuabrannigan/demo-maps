@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { environment } from 'src/environments/environment';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { environment } from 'src/environments/environment';
     NgxMapboxGLModule.withConfig({
       accessToken: environment.MAPBOX_API_KEY,
     }),
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
