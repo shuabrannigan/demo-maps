@@ -1,3 +1,10 @@
 <mat-toolbar color="primary">
     <span>Mapbox Demos</span>
 </mat-toolbar>
+<mgl-map
+[style]="'mapbox://styles/mapbox/streets-v9'"
+[zoom]="[9]"
+[center]="[-74.5, 40]"
+(mapCreate)="mapLoaded($event)"
+>
+</mgl-map>
