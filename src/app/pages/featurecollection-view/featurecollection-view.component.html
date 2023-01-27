@@ -38,12 +38,11 @@
     <div class="interface">
         <p class="error-message" *ngIf="error">Error</p>
         <button mat-flat-button color="primary" (click)="load()">Load</button>
-        <textarea 
-        type="text" 
-        name="featurecollection" 
-        id="featureCollection" 
+        <ngx-codemirror
+        class="codemirror"
         [ngModel]="formInput | async"
-        (ngModelChange)="setFeatureCollection($event)">
-        </textarea>
+        (ngModelChange)="setFeatureCollection($event)"
+        [options]="codeMirrorOptions"
+        ></ngx-codemirror>
     </div>
 </div>
