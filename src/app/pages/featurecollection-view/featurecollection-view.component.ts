@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Map } from 'mapbox-gl';
 import * as turf from '@turf/turf';
-import * as mapboxgl from 'mapbox-gl';
 import { MapboxLayer } from 'src/app/types/mapbox.interface';
 import { FeatureCollectionViewService } from './featurecollection-view.service';
-import { Observable, of, tap } from 'rxjs';
+import { Observable } from 'rxjs';
+import { BBox } from '@turf/turf';
 
 @Component({
   selector: 'app-featurecollection-view',
@@ -17,6 +17,7 @@ export class FeaturecollectionViewComponent implements OnInit {
 
   map: Map | undefined;
   formInput: Observable<string> | undefined;
+  bounds$: Observable<any> | undefined
   sources$: Observable<any> | undefined; // this is actually type Observable<FeatureCollection>
   layers$: MapboxLayer[] = [];
   error: boolean = false;
@@ -25,6 +26,7 @@ export class FeaturecollectionViewComponent implements OnInit {
     this.formInput = this.fcvs.getFeatureCollectionAsJson$();
     this.sources$ = this.fcvs.getFeatureCollection$();
     this.layers$ = this.fcvs.getLayers();
+    this.bounds$ = this.fcvs.selectMapBounds$()
   }
 
   mapLoaded($event: any) {
@@ -37,7 +39,7 @@ export class FeaturecollectionViewComponent implements OnInit {
     try {
       let fc = JSON.parse(featureCollection);
       fc = turf.featureCollection([...fc.features]);
-      console.log(fc);
+      this.fcvs.setFeatureCollection(fc)
       this.error = false;
     } catch (e) {
       console.log(e);

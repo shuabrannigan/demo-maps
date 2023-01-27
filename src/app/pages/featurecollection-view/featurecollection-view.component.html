@@ -10,6 +10,7 @@
         [zoom]="[9]" 
         [center]="[-71.073283, 42.4175]"
         [projection]="{name: 'globe'}"
+        [fitBounds]="bounds$ | async"
         (mapCreate)="mapLoaded($event)">
 
             <mgl-geojson-source
