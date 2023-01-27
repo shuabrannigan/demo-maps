@@ -5,13 +5,42 @@
 </mat-toolbar>
 <div class="container">
     <div class="map-wrapper">
-        <mgl-map [style]="'mapbox://styles/mapbox/streets-v9'" [zoom]="[9]" [center]="[-74.5, 40]"
-            (mapCreate)="mapLoaded($event)">
+        <mgl-map 
+        [style]="'mapbox://styles/mapbox/streets-v9'" 
+        [zoom]="[9]" 
+        [center]="[-71.073283, 42.4175]"
+        [projection]="{name: 'globe'}"
+        (mapCreate)="mapLoaded($event)">
+
+            <mgl-geojson-source
+                id="geo-features"
+                [data]="sources$ | async">
+            </mgl-geojson-source>
+
+            <ng-container *ngFor="let layer of layers$">
+                <mgl-layer 
+                [id]="layer.id" 
+                [type]="layer.type" 
+                [source]="layer.source" 
+                [layout]="layer.layout" 
+                [paint]="layer.paint"
+                [filter]="layer.filter" 
+                [before]="layer.before" 
+                [sourceLayer]="layer.sourceLayer">
+                </mgl-layer>
+            </ng-container>
+
         </mgl-map>
     </div>
     <div class="interface">
         <h4>FeatureCollection</h4>
         <p class="error-message" *ngIf="error">Error</p>
-        <textarea type="text" name="featurecollection" id="" [(ngModel)]='placeholder' (ngModelChange)="setFeatureCollection($event)" ></textarea>
+        <textarea 
+        type="text" 
+        name="featurecollection" 
+        id="featureCollection" 
+        [ngModel]="formInput | async"
+        (ngModelChange)="setFeatureCollection($event)">
+        </textarea>
     </div>
 </div>
