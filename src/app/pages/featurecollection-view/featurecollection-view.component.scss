@@ -20,6 +20,11 @@
         width: 25vw;
         height: 100vh;
         position: relative;
+        text-align: center;
+
+        button {
+            margin: 0.5rem auto;
+        }
 
         .error-message {
             color: #f00;

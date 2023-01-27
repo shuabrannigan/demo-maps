@@ -46,4 +46,8 @@ export class FeaturecollectionViewComponent implements OnInit {
       this.error = true;
     }
   }
+
+  load() {
+    this.fcvs.loadFeatureCollectionFromFile()
+  }
 }

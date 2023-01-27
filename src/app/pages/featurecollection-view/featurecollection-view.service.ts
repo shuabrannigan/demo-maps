@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { BBox, FeatureCollection } from '@turf/turf';
+import { BBox, featureCollection, FeatureCollection } from '@turf/turf';
 import { Observable } from 'rxjs';
 import { MapboxLayersService } from 'src/app/shared/services/map-layers.service';
 import {
@@ -52,4 +52,40 @@ export class FeatureCollectionViewService extends MapboxLayersService {
       },
     ];
   }
+
+  async loadFeatureCollectionFromFile() {
+    let input = document.createElement('input')
+    input.type = 'file'
+    
+    input.onchange = async () => {
+      let files = Array.from(input.files as any) as any[]
+      let file = files[0]
+      if (file.type !== 'application/geo+json') {
+        alert('file must be of type geojson')
+        return
+      }
+      let data = await readGeoJsonFile(file) as FeatureCollection
+      this.setFeatureCollection(data)
+    }
+    input.click()
+  }
+}
+
+async function readGeoJsonFile(file: File) {
+  return new Promise((resolve,reject) => {
+    if (!file) {
+      resolve('')
+    }
+  let fileReader = new FileReader()
+  fileReader.onload = (evt) => {
+    let result = fileReader.result?.toString() as string
+    let data = JSON.parse(result)
+    if (data.type !== 'FeatureCollection') reject('not FeatureCollection')
+    resolve(data)
+  }
+  fileReader.readAsText(file)
+
+
+  })
+
 }

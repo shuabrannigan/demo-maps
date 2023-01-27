@@ -34,8 +34,8 @@
         </mgl-map>
     </div>
     <div class="interface">
-        <h4>FeatureCollection</h4>
         <p class="error-message" *ngIf="error">Error</p>
+        <button mat-flat-button color="primary" (click)="load()">Load</button>
         <textarea 
         type="text" 
         name="featurecollection" 
