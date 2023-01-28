@@ -5,6 +5,7 @@ import * as geoActions from './geo.actions';
 export interface GeoFeatureState {
   featureCollection: FeatureCollection;
   gpsTrack: Feature<LineString> | null
+  rows: FeatureCollection
 }
 
 export const initalGeoFeatureState: GeoFeatureState = {
@@ -29,7 +30,8 @@ export const initalGeoFeatureState: GeoFeatureState = {
       },
     },
   ]),
-  gpsTrack: null
+  gpsTrack: null,
+  rows: featureCollection([])
 };
 
 export const geoFeatureCollectionFeature = createFeature({
@@ -43,6 +45,8 @@ export const geoFeatureCollectionFeature = createFeature({
         featureCollection: featureCollection,
       })
     ),
-    on(geoActions.setGpsLineString, (state, {feature}) => ({...state, gpsTrack: feature}) )
+    on(geoActions.setGpsLineString, (state, {feature}) => ({...state, gpsTrack: feature}) ),
+    on(geoActions.setRowFeatureCollection, (state, {fc}) => ({...state, rows: fc}) ),
+
   ),
 });

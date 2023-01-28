@@ -4,7 +4,7 @@ import * as geoActions from './geo.actions';
 import * as appActions from '@store/app-store/app.actions';
 import { switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { distance, featureCollection, lineString, point } from '@turf/turf';
+import { distance, FeatureCollection, featureCollection, lineString, point } from '@turf/turf';
 import { GPSCapture } from 'src/app/types/gps.interface';
 
 @Injectable()
@@ -23,8 +23,21 @@ export class GeoFeatureEffects {
     )
   );
 
+  loadRows$ = createEffect(() => 
+  this.actions.pipe(
+    ofType(appActions.appLoaded),
+    switchMap(() => this.http.get('./assets/mock-geo-data/madgetts_block_rows.json')),
+    switchMap(async (data) => {
+      let featureCollection = data as FeatureCollection
+      debugger
+      return geoActions.setRowFeatureCollection({fc: featureCollection})
+    })
+  ))
+
   constructor(private actions: Actions, private http: HttpClient) {}
 }
+
+
 
 /**
  * 

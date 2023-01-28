@@ -7,3 +7,5 @@ export const setCurrentFeatureCollection = createAction(
 );
 
 export const setGpsLineString = createAction('[Geo Feature] set GpsLineString', props<{ feature: Feature<LineString> }>())
+
+export const setRowFeatureCollection = createAction('[Geo Features] set Rows', props<{ fc: FeatureCollection }>())

@@ -11,7 +11,8 @@ export class LinearReferenceService extends MapboxLayersService {
     }
 
     selectFeatureCollection$(): Observable<any> {
-        return this.store.select(fromGeoFeatureCollectionFeature.selectGpsTrackAsFeatureCollection)
+        // return this.store.select(fromGeoFeatureCollectionFeature.selectGpsTrackAsFeatureCollection)
+        return this.store.select(fromGeoFeatureCollectionFeature.selectAllGeoFeatures)
     }
 
     selectFeatureBbox$(): Observable<any> {
