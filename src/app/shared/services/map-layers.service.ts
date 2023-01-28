@@ -9,6 +9,10 @@ export interface MapboxMapStyles {
         layout?: any
         paint?: any
     },
+    polygon: {
+        layout?: any
+        paint?: any
+    }
     symbol: {
         layout?: any
         paint?: any
@@ -33,6 +37,15 @@ export class MapboxLayersService {
             'line-color': "#f00",
             'line-width': 3,
             }
+        },
+        polygon: {
+            layout: {
+                visibility: 'visible',
+              },
+              paint: {
+                'line-color': '#f2f',
+                'line-width': 2,
+              },
         },
         symbol: {
             layout: {},

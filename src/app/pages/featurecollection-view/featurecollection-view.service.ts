@@ -48,7 +48,14 @@ export class FeatureCollectionViewService extends MapboxLayersService {
         layout: this.style.line.layout,
         paint: this.style.line.paint,
         filter: ['all', ['==', '$type', 'LineString']],
-        // sourceLayer: 'point-layer',
+      },
+      {
+        id: 'geo-feature-polygon',
+        type: 'line',
+        source: 'geo-features',
+        layout: this.style.polygon.layout,
+        paint: this.style.polygon.paint,
+        filter: ['all', ['==', '$type', 'Polygon']],
       },
     ];
   }
