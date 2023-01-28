@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
 import { geoFeatureCollectionFeature } from './geo.reducer';
-import { bbox, featureCollection } from '@turf/turf'
+import { bbox, featureCollection, } from '@turf/turf'
 
 const {selectFeatureCollection, selectGpsTrack } = geoFeatureCollectionFeature
 
@@ -10,10 +10,13 @@ const selectMapBoundsFromFeatureCollection = createSelector(selectFeatureCollect
 
 const selectGpsTrackAsFeatureCollection = createSelector(selectGpsTrack, (feature) => feature ? featureCollection([feature]) : featureCollection([]))
 
+const selectGpsTrackAsBbox = createSelector(selectGpsTrackAsFeatureCollection, (fc) => bbox(fc) )
+
 
 export const fromGeoFeatureCollectionFeature = {
   selectFeatureCollection,
   selectFeatureCollectionAsJson,
   selectMapBoundsFromFeatureCollection,
-  selectGpsTrackAsFeatureCollection
+  selectGpsTrackAsFeatureCollection,
+  selectGpsTrackAsBbox
 }

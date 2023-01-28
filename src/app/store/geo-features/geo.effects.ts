@@ -4,7 +4,7 @@ import * as geoActions from './geo.actions';
 import * as appActions from '@store/app-store/app.actions';
 import { switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { featureCollection, lineString } from '@turf/turf';
+import { distance, featureCollection, lineString, point } from '@turf/turf';
 import { GPSCapture } from 'src/app/types/gps.interface';
 
 @Injectable()
@@ -17,15 +17,34 @@ export class GeoFeatureEffects {
       ),
       switchMap(async (data) => {
         const captures = data as GPSCapture[];
-        const line = lineString(
-          captures.map((capture) => {
-            return [capture.coords.longitude, capture.coords.latitude];
-          })
-        );
+        const line = filterJumpedCoordinates(captures, 5, true)
         return geoActions.setGpsLineString({feature: line})
       })
     )
   );
 
   constructor(private actions: Actions, private http: HttpClient) {}
+}
+
+/**
+ * 
+ * @param coordinates 
+ * @param threshold 
+ * @param enable 
+ * @returns linestring of filtered coordinates
+ */
+function filterJumpedCoordinates(coordinates: GPSCapture[], threshold: number, enable: boolean) {
+  var captureCoords = coordinates.map((capture) => ([capture.coords.longitude, capture.coords.latitude]))
+  var filteredCoords = [captureCoords[0]]
+  captureCoords.forEach((coord, i, arr) => {
+    if (i === 0) return
+    var currentPoint = point(coord)
+    var previous = point(arr[i - 1])
+    var dist  = distance(currentPoint,previous, {units: 'meters'})
+    if (dist <= threshold) {
+      filteredCoords.push(coord)
+    }
+  })
+  return lineString(enable ? filteredCoords : captureCoords)
+  
 }
