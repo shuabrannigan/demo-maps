@@ -35,7 +35,7 @@ export class MapboxLayersService {
         visibility: 'visible',
       },
       paint: {
-        'line-color': '#f00',
+        'line-color': ['case', ['has', 'color'], ['get', 'color'], '#f00'],
         'line-width': 3,
       },
     },
