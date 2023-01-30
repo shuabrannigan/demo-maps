@@ -10,7 +10,7 @@ import {
   Position,
 } from '@turf/turf';
 import { createLinearReferenceData } from 'src/app/shared/misc/linear-ref-tools';
-import { snapPointsToNearestRow } from 'src/app/shared/misc/row-snapping';
+import { createBboxFromFeatureCollection, generateXPointsWithinBbox, snapPointsToNearestRow } from 'src/app/shared/misc/row-snapping';
 
 const { selectFeatureCollection, selectGpsTrack, selectRows } =
   geoFeatureCollectionFeature;
@@ -50,9 +50,11 @@ const selectAllGeoFeatures = createSelector(
   }
 );
 
-const selectAllGeoFeaturesUsingLinearTool = (show: boolean) => createSelector(
+const selectAllGeoFeaturesUsingLinearTool = (show: boolean, random: boolean) => createSelector(
   [selectGpsTrackAsPointFeatureCollection, selectRows], (gps, rows) => {
-     let snappedPoints = snapPointsToNearestRow(gps, rows, 2.5)
+     let rowBbox = createBboxFromFeatureCollection(rows)
+     let randomPoints = generateXPointsWithinBbox(rowBbox, 3000)
+     let snappedPoints = snapPointsToNearestRow(random ? randomPoints : gps, rows, 2.5)
      let linearReferenceData = createLinearReferenceData(snappedPoints,[1,2,3],[3,10,30],'ripeness',show)
     return featureCollection([...rows.features, ...linearReferenceData, ])
   }

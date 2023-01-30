@@ -1,4 +1,4 @@
-import { FeatureCollection, Feature, Point, pointToLineDistance, LineString, nearestPointOnLine } from "@turf/turf";
+import { FeatureCollection, Feature, Point, pointToLineDistance, LineString, nearestPointOnLine, BBox, bbox, featureCollection, randomPoint, bboxPolygon, pointsWithinPolygon } from "@turf/turf";
 
 /**
  * 
@@ -28,4 +28,15 @@ export function snapPointsToNearestRow(points: FeatureCollection<any>, rows: Fea
         }
     })
     return snappedPoints
+}
+
+export function createBboxFromFeatureCollection(fc: FeatureCollection<any>): BBox {
+    return bbox(fc)
+}
+
+export function generateXPointsWithinBbox(bbox: any, number_of_points: any) {
+    let polygon = bboxPolygon(bbox)
+    let points = randomPoint(number_of_points, {bbox: bbox})
+    let within = pointsWithinPolygon(points,polygon)
+    return within
 }
