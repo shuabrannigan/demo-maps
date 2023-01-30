@@ -15,15 +15,17 @@ export class LinearReferenceComponent implements OnInit {
   bounds$: Observable<any> | undefined;
   sources$: Observable<any> | undefined; // this is actually type Observable<FeatureCollection>
   layers$: MapboxLayer[] = [];
-  show: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
-  show$: Observable<boolean> = this.show.asObservable()
 
-  constructor(private lrs: LinearReferenceService) {}
+
+  legend$: Observable<any[]> | undefined
+
+  constructor(public lrs: LinearReferenceService) {}
 
   ngOnInit(): void {
-    this.sources$ = this.show$.pipe(switchMap((show) => this.lrs.selectFeatureCollection$(show)))
+    this.sources$ = this.lrs.selectFeatureCollection$()
     this.bounds$ = this.lrs.selectFeatureBbox$()
     this.layers$ = this.lrs.baseLayers
+    this.legend$ = this.lrs.selectLegend$()
   }
 
   mapLoaded($event: any) {
@@ -32,6 +34,10 @@ export class LinearReferenceComponent implements OnInit {
   }
 
   showPath() {
-    this.show.next(!this.show.value)
+    this.lrs.show.next(!this.lrs.show.value)
+  }
+
+  useRandom() {
+    this.lrs.random.next(!this.lrs.random.value)
   }
 }

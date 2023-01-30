@@ -3,9 +3,7 @@
     <button mat-flat-button color="primary" aria-label="Example icon button with a home icon" [routerLink]="'/'">
         <mat-icon>home</mat-icon>
     </button>    
-    <button mat-flat-button color="primary" aria-label="Example icon button with a home icon" (click)="showPath()"> <span>Show Gps Path</span>
-        <mat-icon>checkmark</mat-icon>
-    </button>
+
     
 
 </mat-toolbar>
@@ -38,5 +36,20 @@
             </ng-container>
 
         </mgl-map>
+    </div>
+    <div class="overlay">
+        <h2>Legend</h2>
+        <div class="overlay-item" *ngFor="let item of legend$ | async">
+            <div class="overlay-circle" [ngStyle]="{'background-color': item.color}" ></div>
+            <p>{{ item.title }}</p>
+        </div>
+        <div class="overlay-buttons">
+            <button mat-flat-button color="primary" aria-label="Example icon button with a home icon" (click)="showPath()"> <span>Show Gps Path</span>
+                <mat-icon *ngIf="this.lrs.show$ | async">checkmark</mat-icon>
+            </button>
+            <button mat-flat-button color="primary" aria-label="Example icon button with a home icon" (click)="useRandom()"> <span>Use Random Data</span>
+                <mat-icon *ngIf="this.lrs.random$ | async" >checkmark</mat-icon>
+            </button>
+        </div>
     </div>
 </div>
