@@ -1,0 +1,1017 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 1
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54352326997804,
+                        -35.26000950589252
+                    ],
+                    [
+                        138.54345553635466,
+                        -35.25891879240092
+                    ]
+                ]
+            },
+            "id": "084105e8-74f8-4f39-b5a6-d283f435d718"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 2
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54349027124783,
+                        -35.2600108722124
+                    ],
+                    [
+                        138.54342253762445,
+                        -35.2589201587208
+                    ]
+                ]
+            },
+            "id": "aebdb797-cabc-4246-a67e-e981acfaa8ad"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 3
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.5434572725171,
+                        -35.260012238532255
+                    ],
+                    [
+                        138.5433895388937,
+                        -35.258921525040655
+                    ]
+                ]
+            },
+            "id": "0a76b8dd-3ebb-4f4f-9a1d-415888988de3"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 4
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54342427378577,
+                        -35.26001360485209
+                    ],
+                    [
+                        138.5433565401624,
+                        -35.25892289136049
+                    ]
+                ]
+            },
+            "id": "1c635d16-87ba-47dd-bf26-b118b95e28da"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 5
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54339127505392,
+                        -35.260014971171906
+                    ],
+                    [
+                        138.54332354143054,
+                        -35.258924257680306
+                    ]
+                ]
+            },
+            "id": "fc624206-c04a-46b0-9fbf-63a95a0c7716"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 6
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.5433582763316,
+                        -35.26001633749127
+                    ],
+                    [
+                        138.5432905427082,
+                        -35.25892562399967
+                    ]
+                ]
+            },
+            "id": "736bc2a4-009b-4e24-a538-48b29420206c"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 7
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54332527759863,
+                        -35.26001770381104
+                    ],
+                    [
+                        138.54325754397524,
+                        -35.25892699031944
+                    ]
+                ]
+            },
+            "id": "7b48e8b7-dc50-44ce-8920-bd38d335517c"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 8
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.543292278855,
+                        -35.2600190701312
+                    ],
+                    [
+                        138.54322454523162,
+                        -35.2589283566396
+                    ]
+                ]
+            },
+            "id": "a9fe4d07-af40-46ef-81b0-a3ed63d9234a"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 9
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54325928010076,
+                        -35.260020436451754
+                    ],
+                    [
+                        138.54319154647737,
+                        -35.258929722960154
+                    ]
+                ]
+            },
+            "id": "de7f4b84-f0c3-4114-8fd5-832311afafc1"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 10
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54322628136612,
+                        -35.26002180277145
+                    ],
+                    [
+                        138.54315854774273,
+                        -35.25893108927985
+                    ]
+                ]
+            },
+            "id": "ea86c934-39d4-4ce0-b289-e83faf0123a6"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 11
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.5431932826309,
+                        -35.26002316909112
+                    ],
+                    [
+                        138.54312554900753,
+                        -35.25893245559952
+                    ]
+                ]
+            },
+            "id": "691f004c-7663-4fc3-a930-a9aa49a535ee"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 12
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54316028388507,
+                        -35.26002453541119
+                    ],
+                    [
+                        138.5430925502617,
+                        -35.25893382191959
+                    ]
+                ]
+            },
+            "id": "a4255d60-48cd-498f-93e5-a71180e73afa"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 13
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54312728514876,
+                        -35.26002590173082
+                    ],
+                    [
+                        138.54305955152537,
+                        -35.25893518823922
+                    ]
+                ]
+            },
+            "id": "05fb1f8d-d734-406e-bf6a-ebf48cbec148"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 14
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54309428639172,
+                        -35.26002726805126
+                    ],
+                    [
+                        138.54302655276834,
+                        -35.25893655455966
+                    ]
+                ]
+            },
+            "id": "fb5314e6-fe74-4033-8170-32d16cf0fff1"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 15
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.5430612876543,
+                        -35.26002863437084
+                    ],
+                    [
+                        138.54299355403091,
+                        -35.25893792087924
+                    ]
+                ]
+            },
+            "id": "97eadeb2-8431-475c-b78b-03d173303cbc"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 16
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54302828890624,
+                        -35.26003000069082
+                    ],
+                    [
+                        138.54296055528286,
+                        -35.25893928719922
+                    ]
+                ]
+            },
+            "id": "894a164a-bfb0-4a09-aed7-7c0ab97d4f8a"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 17
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.5429952901677,
+                        -35.260031367010356
+                    ],
+                    [
+                        138.54292755654433,
+                        -35.258940653518756
+                    ]
+                ]
+            },
+            "id": "b843e6fd-c315-428a-af35-6eb8d3790db5"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 18
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.5429622914286,
+                        -35.260032733329865
+                    ],
+                    [
+                        138.54289455780523,
+                        -35.258942019838265
+                    ]
+                ]
+            },
+            "id": "c0aa46a6-47f3-4638-b141-1239a4d2c3c6"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 19
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54292929268897,
+                        -35.26003409964935
+                    ],
+                    [
+                        138.54286155906559,
+                        -35.25894338615775
+                    ]
+                ]
+            },
+            "id": "2e02770b-d1ea-4f7f-bc4d-532195dc677f"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 20
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54289629394876,
+                        -35.26003546596882
+                    ],
+                    [
+                        138.54282856032538,
+                        -35.25894475247722
+                    ]
+                ]
+            },
+            "id": "bff92523-bd72-4d01-94b5-f402b64e85da"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 21
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.542863295208,
+                        -35.260036832288264
+                    ],
+                    [
+                        138.54279556158463,
+                        -35.258946118796665
+                    ]
+                ]
+            },
+            "id": "107b8943-37d8-4016-be38-f6efef870106"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 22
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.5428302964667,
+                        -35.26003819860768
+                    ],
+                    [
+                        138.5427625628433,
+                        -35.25894748511608
+                    ]
+                ]
+            },
+            "id": "b1df46d2-120e-44e1-9e62-c3e50ec3e8d1"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 23
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54279729771474,
+                        -35.260039564927496
+                    ],
+                    [
+                        138.54272956409136,
+                        -35.258948851435896
+                    ]
+                ]
+            },
+            "id": "0f7feb04-1e66-45bc-8cbf-d6b8247c7c16"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 24
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54276429897232,
+                        -35.26004093124687
+                    ],
+                    [
+                        138.54269656534893,
+                        -35.25895021775527
+                    ]
+                ]
+            },
+            "id": "bff2c322-3745-4acc-bda7-52b232f9c638"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 25
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54273130021923,
+                        -35.260042297566635
+                    ],
+                    [
+                        138.54266356659585,
+                        -35.258951584075035
+                    ]
+                ]
+            },
+            "id": "d9abe145-394d-4446-8e06-995298894fe0"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 26
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.5426983014757,
+                        -35.26004366388596
+                    ],
+                    [
+                        138.5426305678523,
+                        -35.25895295039436
+                    ]
+                ]
+            },
+            "id": "40cd7163-ddd0-44af-ab3b-7539d3d94f34"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 27
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54266530271144,
+                        -35.2600450302061
+                    ],
+                    [
+                        138.54259756908806,
+                        -35.2589543167145
+                    ]
+                ]
+            },
+            "id": "4757861c-d957-4a1d-af03-82570f91c59a"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 28
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.5426323039668,
+                        -35.26004639652538
+                    ],
+                    [
+                        138.54256457034342,
+                        -35.25895568303378
+                    ]
+                ]
+            },
+            "id": "57e889f2-1e5f-461d-82c1-1362c4bccaf3"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 29
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.5425993052216,
+                        -35.26004776284464
+                    ],
+                    [
+                        138.5425315715982,
+                        -35.25895704935304
+                    ]
+                ]
+            },
+            "id": "264b3089-4f78-420a-9178-10cf58cfd66d"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "5b0ef09fe597cbad6f275bd76bc170f0",
+                "color": "#63CAD8",
+                "index": 30
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.5425663064758,
+                        -35.260049129163875
+                    ],
+                    [
+                        138.54249857285242,
+                        -35.258958415672275
+                    ]
+                ]
+            },
+            "id": "7697e980-134d-4e38-9452-c189cb266c22"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "c71cc730c69851e28374b1dbd73f8af2",
+                "color": "#63CAD8",
+                "index": 31
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54253452917953,
+                        -35.260055255676896
+                    ],
+                    [
+                        138.5424618858716,
+                        -35.25896973969824
+                    ]
+                ]
+            },
+            "id": "e631352e-bf81-4879-a57c-48c7a846df43"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "c71cc730c69851e28374b1dbd73f8af2",
+                "color": "#63CAD8",
+                "index": 32
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54250153723981,
+                        -35.26005672774621
+                    ],
+                    [
+                        138.54242889393188,
+                        -35.25897121176755
+                    ]
+                ]
+            },
+            "id": "94b04bac-b81b-4a37-983f-a2133a833014"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "c71cc730c69851e28374b1dbd73f8af2",
+                "color": "#63CAD8",
+                "index": 33
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.5424685452995,
+                        -35.2600581998155
+                    ],
+                    [
+                        138.54239590199157,
+                        -35.25897268383684
+                    ]
+                ]
+            },
+            "id": "0fb65998-771f-4f26-ac6f-e88414831768"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "c71cc730c69851e28374b1dbd73f8af2",
+                "color": "#63CAD8",
+                "index": 34
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54243555336873,
+                        -35.2600596718843
+                    ],
+                    [
+                        138.5423629100608,
+                        -35.25897415590564
+                    ]
+                ]
+            },
+            "id": "a04d9689-5c35-4a5c-ba66-1d64a90a89c0"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "c71cc730c69851e28374b1dbd73f8af2",
+                "color": "#63CAD8",
+                "index": 35
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54240256144755,
+                        -35.260061143952626
+                    ],
+                    [
+                        138.54232991813961,
+                        -35.25897562797397
+                    ]
+                ]
+            },
+            "id": "3f7b2f3c-7fcf-4867-bfe3-e29aeba84cd7"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "f4d92676a6c5a8916b367ff1de78bbd0",
+                "color": "#63CAD8",
+                "index": 36
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54197333911742,
+                        -35.259016531064574
+                    ],
+                    [
+                        138.54210242351036,
+                        -35.26095369686469
+                    ]
+                ]
+            },
+            "id": "953c9aee-15e1-4654-aff3-13ee40f6298e"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "f4d92676a6c5a8916b367ff1de78bbd0",
+                "color": "#63CAD8",
+                "index": 37
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54200633166133,
+                        -35.259015065251134
+                    ],
+                    [
+                        138.54213541605426,
+                        -35.26095223105125
+                    ]
+                ]
+            },
+            "id": "65868b49-ab53-49f4-b80a-e9b67344aa3a"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "f4d92676a6c5a8916b367ff1de78bbd0",
+                "color": "#63CAD8",
+                "index": 38
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54203932419824,
+                        -35.25901359943795
+                    ],
+                    [
+                        138.54216840859118,
+                        -35.260950765238064
+                    ]
+                ]
+            },
+            "id": "b24d1063-9df5-41a0-a47f-96154cb78f55"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "f4d92676a6c5a8916b367ff1de78bbd0",
+                "color": "#63CAD8",
+                "index": 39
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54207231674096,
+                        -35.25901213362446
+                    ],
+                    [
+                        138.5422014011339,
+                        -35.260949299424574
+                    ]
+                ]
+            },
+            "id": "50d7d134-fe00-4d32-bab8-937fe4eefc33"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "f4d92676a6c5a8916b367ff1de78bbd0",
+                "color": "#63CAD8",
+                "index": 40
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54210530927668,
+                        -35.259010667811225
+                    ],
+                    [
+                        138.54223439366962,
+                        -35.26094783361134
+                    ]
+                ]
+            },
+            "id": "f2fb2219-5d56-45a7-b391-f785c774da71"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "f4d92676a6c5a8916b367ff1de78bbd0",
+                "color": "#63CAD8",
+                "index": 41
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54213830181502,
+                        -35.25900920199782
+                    ],
+                    [
+                        138.54226738620795,
+                        -35.260946367797935
+                    ]
+                ]
+            },
+            "id": "2a2f9b53-d959-4525-8656-a56686a9e15c"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "f4d92676a6c5a8916b367ff1de78bbd0",
+                "color": "#63CAD8",
+                "index": 42
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54217129435594,
+                        -35.25900773618425
+                    ],
+                    [
+                        138.54230037874888,
+                        -35.26094490198437
+                    ]
+                ]
+            },
+            "id": "67940be9-4070-4345-840f-f500c16e16fb"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "f4d92676a6c5a8916b367ff1de78bbd0",
+                "color": "#63CAD8",
+                "index": 43
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54220428689626,
+                        -35.259006270370655
+                    ],
+                    [
+                        138.5423333712892,
+                        -35.26094343617077
+                    ]
+                ]
+            },
+            "id": "5d74e462-3b71-4fc8-bc38-5753e8e59033"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "f4d92676a6c5a8916b367ff1de78bbd0",
+                "color": "#63CAD8",
+                "index": 44
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.542237279436,
+                        -35.25900480455703
+                    ],
+                    [
+                        138.54236636382893,
+                        -35.260941970357145
+                    ]
+                ]
+            },
+            "id": "f44efc83-5818-45e4-83a8-98dc49a88782"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "f4d92676a6c5a8916b367ff1de78bbd0",
+                "color": "#63CAD8",
+                "index": 45
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54227027197513,
+                        -35.259003338743376
+                    ],
+                    [
+                        138.54239935636807,
+                        -35.26094050454349
+                    ]
+                ]
+            },
+            "id": "6243013d-83cd-4f84-b566-191fa18cc5cc"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "drawId": "f4d92676a6c5a8916b367ff1de78bbd0",
+                "color": "#63CAD8",
+                "index": 46
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        138.54230326451366,
+                        -35.2590018729297
+                    ],
+                    [
+                        138.5424323489066,
+                        -35.260939038729816
+                    ]
+                ]
+            },
+            "id": "dddd42b7-bc5b-4e69-81ea-22bdd11eea07"
+        }
+    ]
+}

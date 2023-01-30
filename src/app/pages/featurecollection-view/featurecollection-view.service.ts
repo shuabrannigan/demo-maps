@@ -33,22 +33,14 @@ export class FeatureCollectionViewService extends MapboxLayersService {
 
   getLayers(): MapboxLayer[] {
     return [
+      ...this.baseLayers,
       {
-        id: 'geo-feature-circle',
-        type: 'circle',
-        source: 'geo-features',
-        layout: this.style.circle.layout,
-        paint: this.style.circle.paint,
-        filter: ['all', ['==', '$type', 'Point']],
-      },
-      {
-        id: 'geo-feature-line',
+        id: 'geo-feature-polygon',
         type: 'line',
         source: 'geo-features',
-        layout: this.style.line.layout,
-        paint: this.style.line.paint,
-        filter: ['all', ['==', '$type', 'LineString']],
-        // sourceLayer: 'point-layer',
+        layout: this.style.polygon.layout,
+        paint: this.style.polygon.paint,
+        filter: ['all', ['==', '$type', 'Polygon']],
       },
     ];
   }

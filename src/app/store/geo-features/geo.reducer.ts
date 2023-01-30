@@ -1,9 +1,11 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
-import { featureCollection, FeatureCollection } from '@turf/turf';
+import { Feature, featureCollection, FeatureCollection, LineString } from '@turf/turf';
 import * as geoActions from './geo.actions';
 
 export interface GeoFeatureState {
   featureCollection: FeatureCollection;
+  gpsTrack: Feature<LineString> | null
+  rows: FeatureCollection
 }
 
 export const initalGeoFeatureState: GeoFeatureState = {
@@ -28,6 +30,8 @@ export const initalGeoFeatureState: GeoFeatureState = {
       },
     },
   ]),
+  gpsTrack: null,
+  rows: featureCollection([])
 };
 
 export const geoFeatureCollectionFeature = createFeature({
@@ -40,6 +44,9 @@ export const geoFeatureCollectionFeature = createFeature({
         ...state,
         featureCollection: featureCollection,
       })
-    )
+    ),
+    on(geoActions.setGpsLineString, (state, {feature}) => ({...state, gpsTrack: feature}) ),
+    on(geoActions.setRowFeatureCollection, (state, {fc}) => ({...state, rows: fc}) ),
+
   ),
 });

@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { SharedModule } from '../shared/shared.module';
 
 import { appFeature } from './app-store/app.reducer';
+import { GeoFeatureEffects } from './geo-features/geo.effects';
 import { geoFeatureCollectionFeature } from './geo-features/geo.reducer';
 
 const optionalImports = [];
@@ -25,7 +26,7 @@ const StoreModuleArray = [
   imports: [
     CommonModule,
     SharedModule,
-    EffectsModule.forFeature([]),
+    EffectsModule.forFeature([GeoFeatureEffects]),
     ...optionalImports,
     ...StoreModuleArray,
   ],

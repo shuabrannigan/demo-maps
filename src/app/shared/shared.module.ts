@@ -5,6 +5,7 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { MaterialModule } from './material.module';
 import { MapboxLayersService } from './services/map-layers.service';
 import { CodemirrorModule } from '@ctrl/ngx-codemirror';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,6 +14,8 @@ import { CodemirrorModule } from '@ctrl/ngx-codemirror';
   exports: [
     CommonModule,
     FormsModule,
+    // HttpClient,
+    HttpClientModule,
     MaterialModule,
     NgxMapboxGLModule,
     CodemirrorModule,

@@ -21,6 +21,13 @@ const routes: Routes = [
         './pages/featurecollection-view/featurecollection-view.module'
       ).then((m) => m.FeatureCollectionViewModule),
   },
+  {
+    path: 'linear-reference',
+    loadChildren: () =>
+      import('./pages/linear-reference/linear-reference.module').then(
+        (m) => m.LinearReferenceModule
+      ),
+  },
 ];
 
 @NgModule({
