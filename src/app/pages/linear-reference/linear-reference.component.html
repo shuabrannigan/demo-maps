@@ -2,7 +2,11 @@
     <span>Linear Reference</span>
     <button mat-flat-button color="primary" aria-label="Example icon button with a home icon" [routerLink]="'/'">
         <mat-icon>home</mat-icon>
+    </button>    
+    <button mat-flat-button color="primary" aria-label="Example icon button with a home icon" (click)="showPath()"> <span>Show Gps Path</span>
+        <mat-icon>checkmark</mat-icon>
     </button>
+    
 
 </mat-toolbar>
 <div class="container">

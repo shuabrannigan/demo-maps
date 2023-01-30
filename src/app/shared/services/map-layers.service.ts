@@ -26,8 +26,8 @@ export class MapboxLayersService {
     circle: {
       layout: { visibility: 'visible' },
       paint: {
-        'circle-color': '#fff',
-        'circle-radius': 5,
+        'circle-color': ['case', ['has', 'color'], ['get', 'color'], '#fff'],
+        'circle-radius': 3,
       },
     },
     line: {
@@ -70,6 +70,7 @@ export class MapboxLayersService {
       layout: this.style.line.layout,
       paint: this.style.line.paint,
       filter: ['all', ['==', '$type', 'LineString']],
+      before: 'geo-feature-circle'
     },
   ];
 }

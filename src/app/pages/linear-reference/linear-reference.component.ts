@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Map } from 'mapbox-gl';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable, Subject, switchMap } from 'rxjs';
 import { MapboxLayer } from 'src/app/types/mapbox.interface';
 import { LinearReferenceService } from './linear-reference.service';
 
@@ -15,12 +15,13 @@ export class LinearReferenceComponent implements OnInit {
   bounds$: Observable<any> | undefined;
   sources$: Observable<any> | undefined; // this is actually type Observable<FeatureCollection>
   layers$: MapboxLayer[] = [];
+  show: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+  show$: Observable<boolean> = this.show.asObservable()
 
   constructor(private lrs: LinearReferenceService) {}
 
   ngOnInit(): void {
-
-    this.sources$ = this.lrs.selectFeatureCollection$()
+    this.sources$ = this.show$.pipe(switchMap((show) => this.lrs.selectFeatureCollection$(show)))
     this.bounds$ = this.lrs.selectFeatureBbox$()
     this.layers$ = this.lrs.baseLayers
   }
@@ -28,5 +29,9 @@ export class LinearReferenceComponent implements OnInit {
   mapLoaded($event: any) {
     this.map = $event as Map;
     this.map.resize();
+  }
+
+  showPath() {
+    this.show.next(!this.show.value)
   }
 }

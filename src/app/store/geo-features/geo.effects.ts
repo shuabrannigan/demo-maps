@@ -29,7 +29,6 @@ export class GeoFeatureEffects {
     switchMap(() => this.http.get('./assets/mock-geo-data/madgetts_block_rows.json')),
     switchMap(async (data) => {
       let featureCollection = data as FeatureCollection
-      debugger
       return geoActions.setRowFeatureCollection({fc: featureCollection})
     })
   ))
