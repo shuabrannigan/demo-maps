@@ -53,7 +53,7 @@ const selectAllGeoFeatures = createSelector(
 const selectAllGeoFeaturesUsingLinearTool = (show: boolean) => createSelector(
   [selectGpsTrackAsPointFeatureCollection, selectRows], (gps, rows) => {
      let snappedPoints = snapPointsToNearestRow(gps, rows, 2.5)
-     let linearReferenceData = createLinearReferenceData(snappedPoints,[1,2,3],[3,7,10],'ripeness',show)
+     let linearReferenceData = createLinearReferenceData(snappedPoints,[1,2,3],[3,10,30],'ripeness',show)
     return featureCollection([...rows.features, ...linearReferenceData, ])
   }
 )

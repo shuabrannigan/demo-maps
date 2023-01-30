@@ -39,4 +39,11 @@
 
         </mgl-map>
     </div>
+    <div class="overlay">
+        <h2>Legend</h2>
+        <div class="overlay-item" *ngFor="let item of legend$ | async">
+            <div class="overlay-circle" [ngStyle]="{'background-color': item.color}" ></div>
+            <p>{{ item.title }}</p>
+        </div>
+    </div>
 </div>

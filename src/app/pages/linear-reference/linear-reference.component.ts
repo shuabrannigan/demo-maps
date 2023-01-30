@@ -18,12 +18,15 @@ export class LinearReferenceComponent implements OnInit {
   show: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
   show$: Observable<boolean> = this.show.asObservable()
 
+  legend$: Observable<any[]> | undefined
+
   constructor(private lrs: LinearReferenceService) {}
 
   ngOnInit(): void {
     this.sources$ = this.show$.pipe(switchMap((show) => this.lrs.selectFeatureCollection$(show)))
     this.bounds$ = this.lrs.selectFeatureBbox$()
     this.layers$ = this.lrs.baseLayers
+    this.legend$ = this.lrs.selectLegend$()
   }
 
   mapLoaded($event: any) {
