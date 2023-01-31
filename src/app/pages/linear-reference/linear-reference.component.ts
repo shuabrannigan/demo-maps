@@ -33,11 +33,5 @@ export class LinearReferenceComponent implements OnInit {
     this.map.resize();
   }
 
-  showPath() {
-    this.lrs.show.next(!this.lrs.show.value)
-  }
 
-  useRandom() {
-    this.lrs.random.next(!this.lrs.random.value)
-  }
 }
