@@ -36,12 +36,12 @@
         </mgl-map>
     </div>
     <div class="interface">
-        <p class="error-message" *ngIf="error">Error</p>
-        <button mat-flat-button color="primary" (click)="load()">Load</button>
+        <p class="error-message" *ngIf="error$ | async">Error</p>
+        <button mat-flat-button color="primary" (click)="this.fcvs.loadFeatureCollectionFromFile()">Load</button>
         <ngx-codemirror
         class="codemirror"
         [ngModel]="formInput | async"
-        (ngModelChange)="setFeatureCollection($event)"
+        (ngModelChange)="this.fcvs.handleSetFeatureCollection($event)"
         [options]="codeMirrorOptions"
         ></ngx-codemirror>
     </div>

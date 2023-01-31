@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { BBox, featureCollection, FeatureCollection } from '@turf/turf';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { MapboxLayersService } from 'src/app/shared/services/map-layers.service';
 import {
   fromGeoFeatureCollectionFeature
@@ -9,11 +9,25 @@ import {
 import { MapboxLayer } from 'src/app/types/mapbox.interface';
 import * as geoActions from '@store/geo-features/geo.actions'
 
+export interface FeatureCollectionViewerServiceModel {
+  getFeatureCollection$(): Observable<FeatureCollection>
+  getFeatureCollectionAsJson$(): Observable<string>
+  selectMapBounds$(): Observable<BBox>
+  setFeatureCollection(featureCollection: FeatureCollection): void
+  getLayers(): MapboxLayer[]
+  loadFeatureCollectionFromFile(): void
+  readonly error: BehaviorSubject<boolean>
+  error$: Observable<boolean> 
+}
+
 @Injectable()
-export class FeatureCollectionViewService extends MapboxLayersService {
+export class FeatureCollectionViewService extends MapboxLayersService implements FeatureCollectionViewerServiceModel {
   constructor(private store: Store) {
     super();
   }
+
+  public readonly error: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+  error$: Observable<boolean> = this.error.asObservable()
 
   getFeatureCollection$(): Observable<FeatureCollection> {
     return this.store.select(fromGeoFeatureCollectionFeature.selectFeatureCollection);
@@ -60,6 +74,18 @@ export class FeatureCollectionViewService extends MapboxLayersService {
       this.setFeatureCollection(data)
     }
     input.click()
+  }
+
+  handleSetFeatureCollection(featureCollectionString: string) {
+    try {
+      let fc = JSON.parse(featureCollectionString)
+      fc = featureCollection([...fc.features])
+      this.setFeatureCollection(fc)
+      this.error.next(false)
+    } catch (e) {
+      console.log(e)
+      this.error.next(true)
+    }
   }
 }
 

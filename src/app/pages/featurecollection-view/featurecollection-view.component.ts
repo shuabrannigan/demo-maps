@@ -13,14 +13,14 @@ import { BBox } from '@turf/turf';
   providers: [FeatureCollectionViewService],
 })
 export class FeaturecollectionViewComponent implements OnInit {
-  constructor(private fcvs: FeatureCollectionViewService) {}
+  constructor(public fcvs: FeatureCollectionViewService) {}
 
   map: Map | undefined;
   formInput: Observable<string> | undefined;
   bounds$: Observable<any> | undefined
   sources$: Observable<any> | undefined; // this is actually type Observable<FeatureCollection>
   layers$: MapboxLayer[] = [];
-  error: boolean = false;
+  error$: Observable<boolean> | undefined
 
   codeMirrorOptions: any = {
     theme: 'idea',
@@ -39,6 +39,7 @@ export class FeaturecollectionViewComponent implements OnInit {
     this.sources$ = this.fcvs.getFeatureCollection$();
     this.layers$ = this.fcvs.getLayers();
     this.bounds$ = this.fcvs.selectMapBounds$()
+    this.error$ = this.fcvs.error$
   }
 
   mapLoaded($event: any) {
@@ -47,19 +48,4 @@ export class FeaturecollectionViewComponent implements OnInit {
     this.map.resize();
   }
 
-  setFeatureCollection(featureCollection: string) {
-    try {
-      let fc = JSON.parse(featureCollection);
-      fc = turf.featureCollection([...fc.features]);
-      this.fcvs.setFeatureCollection(fc)
-      this.error = false;
-    } catch (e) {
-      console.log(e);
-      this.error = true;
-    }
-  }
-
-  load() {
-    this.fcvs.loadFeatureCollectionFromFile()
-  }
 }
