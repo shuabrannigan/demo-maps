@@ -10,25 +10,39 @@ import {
 } from 'rxjs';
 import { MapboxLayersService } from "src/app/shared/services/map-layers.service";
 import {fromGeoFeatureCollectionFeature} from '@store/geo-features/geo.selectors'
+import { FeatureCollection } from "@turf/turf";
+
+interface LinearReferenceServiceModel {
+  readonly mockLegend: any[]
+  readonly show: BehaviorSubject<boolean>
+  show$: Observable<boolean>
+  readonly random: BehaviorSubject<boolean>
+  random$: Observable<boolean>
+  selectFeatureCollection$(): Observable<FeatureCollection>
+  selectFeatureBbox$(): Observable<any>
+  selectLegend$(): Observable<any[]>
+  showPath(): void
+  useRandom(): void
+}
 
 @Injectable()
-export class LinearReferenceService extends MapboxLayersService {
+export class LinearReferenceService  extends MapboxLayersService implements LinearReferenceServiceModel {
   constructor(private store: Store) {
     super();
   }
-  mockLegend: any[] = [
+  public readonly mockLegend: any[] = [
     { color: '#D2222D', title: 'Not Ready' },
     { color: '#FFBF00', title: 'Almost Ready' },
     { color: '#238823', title: 'Ready' },
   ].reverse();
 
-  show: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  show$: Observable<boolean> = this.show.asObservable();
+  public readonly show: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public show$: Observable<boolean> = this.show.asObservable();
 
-  random: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  random$: Observable<boolean> = this.random.asObservable();
+  public readonly random: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public random$: Observable<boolean> = this.random.asObservable();
 
-  selectFeatureCollection$(): Observable<any> {
+  selectFeatureCollection$(): Observable<FeatureCollection> {
     return combineLatest([this.show$, this.random$], (show, random) => ({
       show,
       random,
@@ -52,5 +66,13 @@ export class LinearReferenceService extends MapboxLayersService {
 
   selectLegend$(): Observable<any[]> {
     return of([...this.mockLegend]);
+  }
+
+  showPath() {
+    this.show.next(!this.show.value)
+  }
+
+  useRandom() {
+    this.random.next(!this.random.value)
   }
 }
