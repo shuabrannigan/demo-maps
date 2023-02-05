@@ -24,7 +24,7 @@ export class FeaturecollectionViewComponent implements OnInit {
 
   codeMirrorOptions: any = {
     theme: 'idea',
-    mode: 'application/ld+json',
+    mode: 'application/geo+json',
     lineNumbers: true,
     lineWrapping: true,
     foldGutter: true,

@@ -20,14 +20,17 @@
         width: 25vw;
         height: 100vh;
         position: relative;
-        text-align: center;
 
         button {
+            display: flex;
             margin: 0.5rem auto;
         }
 
         .error-message {
+            text-align: center;
             color: #f00;
+            padding: 1rem;
+            font-weight: bold;
         }
 
         .codemirror {
