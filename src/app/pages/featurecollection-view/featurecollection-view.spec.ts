@@ -54,7 +54,7 @@ describe('FeatureCollectionViewComponent', () => {
       expect(component).toBeTruthy();
     });
 
-    it('call mapLoaded(), load check map is loaded', async () => {
+    it('call mapLoaded(), check map loaded value is true', async () => {
       component.mapLoaded(map)
       expect(component.map?.loaded).toBeTruthy()
     });
