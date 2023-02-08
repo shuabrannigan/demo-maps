@@ -2,26 +2,23 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.10.
 
-## Development server
+This project is a test ground for linear referencing and other geospatial data visualization.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Running Project
 
-## Code scaffolding
+This project uses Mapbox so requires an API key, to see this application up and running get a public API Key from Mapbox.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+You will then need to create a `environment.ts` file in `src/environments/*`.
 
-## Build
+This file needs to have the following code for the project to run: 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+export const environment = {
+  production: false,
+  MAPBOX_API_KEY: 'API KEY GOES HERE',
+};
+```
 
-## Running unit tests
+you can then run `npm i` to install the node_modules for the project. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+lastly run `ng serve` to run the project on localhost
