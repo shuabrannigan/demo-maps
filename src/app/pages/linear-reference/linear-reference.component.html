@@ -44,10 +44,10 @@
             <p>{{ item.title }}</p>
         </div>
         <div class="overlay-buttons">
-            <button mat-flat-button color="primary" aria-label="Example icon button with a home icon" (click)="this.lrs.showPath()"> <span>Show Gps Path</span>
+            <button data-test="gps" mat-flat-button color="primary" aria-label="Example icon button with a home icon" (click)="this.lrs.showPath()"> <span>Show Gps Path</span>
                 <mat-icon *ngIf="this.lrs.show$ | async">checkmark</mat-icon>
             </button>
-            <button mat-flat-button color="primary" aria-label="Example icon button with a home icon" (click)="this.lrs.useRandom()"> <span>Use Random Data</span>
+            <button data-test="random" mat-flat-button color="primary" aria-label="Example icon button with a home icon" (click)="this.lrs.useRandom()"> <span>Use Random Data</span>
                 <mat-icon *ngIf="this.lrs.random$ | async" >checkmark</mat-icon>
             </button>
         </div>
