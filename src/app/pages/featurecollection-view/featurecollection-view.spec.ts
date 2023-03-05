@@ -1,62 +1,69 @@
-import { DebugElement } from "@angular/core"
+import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import {
   ComponentFixture,
-  TestBed,
+  TestBed
 } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { StoreModule } from '@ngrx/store';
+import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 import { provideMockStore } from '@ngrx/store/testing';
 import { Map } from 'mapbox-gl';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { environment } from 'src/environments/environment';
-import { FeaturecollectionViewComponent } from "./featurecollection-view.component"
-
-
-
+import { MaterialModule } from 'src/app/shared/material.module';
+import { findComponent } from 'src/app/shared/misc/find_component';
+import { FeaturecollectionViewComponent } from './featurecollection-view.component';
 
 describe('FeatureCollectionViewComponent', () => {
-    let component: FeaturecollectionViewComponent
-    let fixture: ComponentFixture<FeaturecollectionViewComponent>
-    let de: DebugElement
-    let map: Map
+  let component: FeaturecollectionViewComponent;
+  let fixture: ComponentFixture<FeaturecollectionViewComponent>;
+  let de: DebugElement;
+  let container: HTMLElement;
 
-    beforeEach(async () => {
-      TestBed.configureTestingModule({
-        imports: [
-          RouterTestingModule,
-          StoreModule,
-          SharedModule,
-          NgxMapboxGLModule.withConfig({
-            accessToken: environment.MAPBOX_API_KEY,
-          }),
-        ],
-        declarations: [FeaturecollectionViewComponent],
-        providers: [provideMockStore({})],
-      }).compileComponents();
-    });
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        NgxMapboxGLModule.withConfig({ accessToken: 'test' }),
+        CodemirrorModule,
+        MaterialModule,
+      ],
+      declarations: [FeaturecollectionViewComponent],
+      providers: [provideMockStore({})],
+      schemas: [NO_ERRORS_SCHEMA],
+    }).compileComponents();
+  });
 
-    beforeEach(() => {
-      fixture = TestBed.createComponent(FeaturecollectionViewComponent);
-      component = fixture.componentInstance;
-      de = fixture.debugElement;
-      fixture.detectChanges();
-    });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(FeaturecollectionViewComponent);
+    component = fixture.componentInstance;
+    de = fixture.debugElement;
+    container = document.createElement('div');
+    fixture.detectChanges();
+  });
 
-    beforeEach(() => {
-      let el = document.createElement('div')
-      el.id = 'map'
-      map = new Map({container: el})
-    })
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 
+  it('renders mgl-map', () => {
+    const mgl_map = findComponent(fixture, 'mgl-map');
+    expect(mgl_map).toBeTruthy();
+  });
 
-    it('should create', () => {
-      expect(component).toBeTruthy();
-    });
+  it('renders ngx-codemirror', () => {
+    const ngx_codemirror = findComponent(fixture, 'ngx-codemirror');
+    expect(ngx_codemirror).toBeTruthy();
+  });
 
-    it('call mapLoaded(), check map loaded value is true', async () => {
-      component.mapLoaded(map)
-      expect(component.map?.loaded).toBeTruthy()
-    });
+  it('renders mat-toolbar', () => {
+    const mat_toolbar = findComponent(fixture, 'mat-toolbar');
+    expect(mat_toolbar).toBeTruthy();
+  });
 
-})
+  it('listens for mgl-map (mapCreate) event', () => {
+    spyOn(component, 'mapLoaded');
+    const mgl_map = findComponent(fixture, 'mgl-map');
+    const map = new Map({ container });
+    mgl_map.triggerEventHandler('mapCreate', map);
+    expect(component.mapLoaded).toHaveBeenCalledWith(map);
+  });
+});
