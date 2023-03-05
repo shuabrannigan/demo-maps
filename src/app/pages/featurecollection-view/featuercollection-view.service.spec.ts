@@ -23,51 +23,43 @@ describe('FeatureCollectionViewServices', () => {
         subs.unsubscribe()
     })
 
-    it('returns featureCollection Observable', () => {
-        let actualFeatureCollection: FeatureCollection | undefined
+    it('returns featureCollection Observable', done => {
         subs.add(
             featureCollectionViewService.getFeatureCollection$().subscribe((fc) => {
-                actualFeatureCollection = fc
-            }).unsubscribe()
-        )
-
-        expect(actualFeatureCollection).toBe(initalGeoFeatureState.featureCollection)
-    })
-
-    it('returns featureCollection as a string Observable', () => {
-        let actualFeatureCollection: string | undefined
-        subs.add(
-            featureCollectionViewService.getFeatureCollectionAsJson$().subscribe((str) => {
-                actualFeatureCollection = str
-            }).unsubscribe()
-        )
-        expect(actualFeatureCollection).toBe(JSON.stringify(initalGeoFeatureState.featureCollection))
-    })
-
-    it('returns mapBounds as Observable', () => {
-        let actualMapBounds: BBox | undefined
-        subs.add(
-            featureCollectionViewService.selectMapBounds$().subscribe((bounds) => {
-                actualMapBounds = bounds
+                expect(fc).toBe(initalGeoFeatureState.featureCollection)
+                done()
             })
         )
-        expect(actualMapBounds).toEqual([-71.343283, 42.4175, -71.073283, 42.4175])
     })
 
-    it('set featureCollection to empty FeatureCollection', () => {
+    it('returns featureCollection as a string Observable', done => {
+        subs.add(
+            featureCollectionViewService.getFeatureCollectionAsJson$().subscribe((str) => {
+                expect(str).toBe(JSON.stringify(initalGeoFeatureState.featureCollection))
+                done()
+            })
+        )
+    })
+
+    it('returns mapBounds as Observable', done => {
+        subs.add(
+            featureCollectionViewService.selectMapBounds$().subscribe((bounds) => {
+                expect(bounds).toEqual([-71.343283, 42.4175, -71.073283, 42.4175])
+                done()
+            })
+        )
+    })
+
+    it('set featureCollection to empty FeatureCollection', done => {
         spyOn(featureCollectionViewService, 'setFeatureCollection').and.callThrough()
         let featureCollectionToSet: FeatureCollection = featureCollection([])
         featureCollectionViewService.setFeatureCollection(featureCollectionToSet)
-
-        let actualFeatureCollection: FeatureCollection | undefined
-
         subs.add(
             featureCollectionViewService.getFeatureCollection$().subscribe((fc) => {
-                actualFeatureCollection = fc
+                expect(featureCollectionViewService.setFeatureCollection).toHaveBeenCalledWith(featureCollectionToSet)
+                expect(fc).withContext('getFeatureCollection$ return').toEqual(featureCollectionToSet)
+                done()
             })
         )
-
-        expect(featureCollectionViewService.setFeatureCollection).toHaveBeenCalledWith(featureCollectionToSet)
-        expect(actualFeatureCollection).toEqual(featureCollectionToSet)
     })
 })
