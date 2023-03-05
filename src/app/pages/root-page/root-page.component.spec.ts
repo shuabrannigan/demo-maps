@@ -23,4 +23,19 @@ describe('RootPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('render mat-toolbar', () => {
+    let mat_toolbar = fixture.nativeElement.querySelector('[data-test="mat-toolbar"]')
+    expect(mat_toolbar).toBeTruthy()
+  })
+
+  it('render feature viewer button', () => {
+    let featureViewerButton = fixture.nativeElement.querySelector('[data-test="feature-viewer"]')
+    expect(featureViewerButton).toBeTruthy()
+  })
+
+  it('render linear reference button', () => {
+    let linearReferenceButton = fixture.nativeElement.querySelector('[data-test="linear-reference"]')
+    expect(linearReferenceButton).toBeTruthy()
+  })
 });
