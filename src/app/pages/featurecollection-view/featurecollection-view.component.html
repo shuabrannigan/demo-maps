@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar data-test="toolbar" color="primary">
     <span>Feature Viewer</span>
     <button mat-flat-button color="primary" aria-label="Example icon button with a home icon" [routerLink]="'/'">
         <mat-icon>home</mat-icon>
@@ -8,6 +8,7 @@
 <div class="container">
     <div class="map-wrapper">
         <mgl-map 
+        data-test="mgl-map"
         [style]="'mapbox://styles/mapbox/streets-v9'" 
         [zoom]="[9]" 
         [center]="[-71.073283, 42.4175]"
@@ -16,6 +17,7 @@
         (mapCreate)="mapLoaded($event)">
 
             <mgl-geojson-source
+                data-test="mgl-geojson"
                 id="geo-features"
                 [data]="sources$ | async">
             </mgl-geojson-source>
@@ -35,7 +37,7 @@
 
         </mgl-map>
     </div>
-    <div class="interface">
+    <div data-test="interface" class="interface">
         <p class="error-message" *ngIf="error$ | async">Error</p>
         <button mat-flat-button color="primary" (click)="this.fcvs.loadFeatureCollectionFromFile()">Load</button>
         <ngx-codemirror

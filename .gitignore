@@ -43,3 +43,7 @@ Thumbs.db
 
 #Env
 /src/environments/
+
+#cypress
+/cypress/videos/
+/cypress/screenshots/
