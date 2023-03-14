@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Map } from 'mapbox-gl';
-import * as turf from '@turf/turf';
 import { MapboxLayer } from 'src/app/types/mapbox.interface';
 import { FeatureCollectionViewService } from './featurecollection-view.service';
 import { Observable } from 'rxjs';
-import { BBox } from '@turf/turf';
 
 @Component({
   selector: 'app-featurecollection-view',
@@ -12,15 +10,15 @@ import { BBox } from '@turf/turf';
   styleUrls: ['./featurecollection-view.component.scss'],
   providers: [FeatureCollectionViewService],
 })
-export class FeaturecollectionViewComponent implements OnInit {
+export class FeaturecollectionViewComponent {
   constructor(public fcvs: FeatureCollectionViewService) {}
 
   map: Map | undefined;
-  formInput: Observable<string> | undefined;
-  bounds$: Observable<any> | undefined
-  sources$: Observable<any> | undefined; // this is actually type Observable<FeatureCollection>
-  layers$: MapboxLayer[] = [];
-  error$: Observable<boolean> | undefined
+  formInput: Observable<string> =  this.fcvs.getFeatureCollectionAsJson$();
+  bounds$: Observable<any> = this.fcvs.selectMapBounds$()
+  sources$: Observable<any> = this.fcvs.getFeatureCollection$(); // this is actually type Observable<FeatureCollection>
+  layers$: MapboxLayer[] = this.fcvs.getLayers();
+  error$: Observable<boolean> = this.fcvs.error$
 
   codeMirrorOptions: any = {
     theme: 'idea',
@@ -33,14 +31,6 @@ export class FeaturecollectionViewComponent implements OnInit {
     matchBrackets: true,
     lint: true
   };
-
-  ngOnInit(): void {
-    this.formInput = this.fcvs.getFeatureCollectionAsJson$();
-    this.sources$ = this.fcvs.getFeatureCollection$();
-    this.layers$ = this.fcvs.getLayers();
-    this.bounds$ = this.fcvs.selectMapBounds$()
-    this.error$ = this.fcvs.error$
-  }
 
   mapLoaded($event: any) {
     // $event as Map a little hacky, but works.
