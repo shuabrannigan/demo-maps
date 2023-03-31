@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   AbstractBaseMapComponent,
   AbstractBaseMapService,
 } from './abstract-basemap';
-import { MapboxLayersService } from '../../services/map-layers.service';
 import { MapboxLayer } from 'src/app/types/mapbox.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-basemap-component',
@@ -43,8 +43,8 @@ import { MapboxLayer } from 'src/app/types/mapbox.interface';
   styles: [
     `
       .map-wrapper {
-        width: 75vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         position: relative;
 
         mgl-map {
@@ -57,7 +57,20 @@ import { MapboxLayer } from 'src/app/types/mapbox.interface';
   ],
 })
 export class BaseMapComponent extends AbstractBaseMapComponent {
-  constructor(private baseMapService: AbstractBaseMapService) {
-    super(baseMapService);
+
+  @Input() baseMapService!: AbstractBaseMapService
+
+  override bounds$: Observable<any> | undefined;
+  override sources$: Observable<any> | undefined;
+  override layers: MapboxLayer[] | undefined;
+
+  constructor() {
+    super();
   }
+  ngOnInit() {
+    this.bounds$ = this.baseMapService.bounds$();
+    this.sources$ = this.baseMapService.sources$();
+    this.layers = this.baseMapService.layers();
+  }
+
 }

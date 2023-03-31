@@ -5,10 +5,8 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { MaterialModule } from './material.module';
 import { MapboxLayersService } from './services/map-layers.service';
 import { CodemirrorModule } from '@ctrl/ngx-codemirror';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BaseMapComponent } from './components/basemap/basemap.component';
-import { AbstractBaseMapService } from './components/basemap/abstract-basemap';
-import { BaseMapService } from './components/basemap/basemap.service';
 
 
 @NgModule({
@@ -26,7 +24,6 @@ import { BaseMapService } from './components/basemap/basemap.service';
   ],
   providers: [
     MapboxLayersService,
-    { provide: AbstractBaseMapService, useClass: BaseMapService },
   ],
 })
 export class SharedModule {}

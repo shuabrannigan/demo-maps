@@ -4,29 +4,26 @@ import { IBaseMap } from "./basemap.interface"
 import { Map } from "mapbox-gl"
 import { Store } from "@ngrx/store"
 import { fromGeoFeatureCollectionFeature } from "@store/geo-features/geo.selectors"
+import { Directive, Inject, Input } from '@angular/core';
 
 export abstract class AbstractBaseMapService {
-    constructor(public store: Store) {}
-    bounds$(): Observable<any> {
-        return this.store.select(fromGeoFeatureCollectionFeature.selectMapBoundsFromFeatureCollection)
-    }
-    sources$(): Observable<any> {
-        return this.store.select(fromGeoFeatureCollectionFeature.selectFeatureCollection)
-    }
-    
-    abstract layers(): MapboxLayer[]
+  constructor(public store: Store) {}
+  abstract bounds$(): Observable<any>;
+  abstract sources$(): Observable<any>;
+  abstract layers(): MapboxLayer[];
 }
 
+
+@Directive()
 export abstract class AbstractBaseMapComponent implements IBaseMap {
-    map: Map | undefined
-    bounds$: Observable<any> = this.basemapService.bounds$()
-    sources$: Observable<any> = this.basemapService.sources$()
-    layers: MapboxLayer[] = this.basemapService.layers()
-    constructor(private basemapService: AbstractBaseMapService) {}
+  map: Map | undefined;
+  abstract bounds$: Observable<any> | undefined
+  abstract sources$: Observable<any> | undefined
+  abstract layers: MapboxLayer[] | undefined
+  constructor() {}
 
-    mapLoaded(event: any) {
-        this.map = event as Map
-        this.map.resize()
-    }
-
+  mapLoaded(event: any) {
+    this.map = event as Map;
+    this.map.resize();
+  }
 }
