@@ -2,16 +2,10 @@
     position: fixed;
     display: flex;
 
-    .map-wrapper {
+    app-basemap-component {
         width: 100vw;
         height: 100vh;
         position: relative;
-
-        mgl-map {
-            height: 100%;
-            width: 100%;
-            position: relative;
-        }
     }
     .overlay {
         position: absolute;

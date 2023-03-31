@@ -14,16 +14,16 @@ import { LinearReferenceService } from './linear-reference.service';
 export class LinearReferenceComponent {
   constructor(public lrs: LinearReferenceService) {}
 
-  map: Map | undefined;
-  bounds$: Observable<any> = this.lrs.selectFeatureBbox$()
-  sources$: Observable<any> = this.lrs.selectFeatureCollection$()
-  layers$: MapboxLayer[] = this.lrs.baseLayers;
+  // map: Map | undefined;
+  // bounds$: Observable<any> = this.lrs.selectFeatureBbox$()
+  // sources$: Observable<any> = this.lrs.selectFeatureCollection$()
+  // layers$: MapboxLayer[] = this.lrs.baseLayers;
   legend$: Observable<any[]> = this.lrs.selectLegend$()
 
-  mapLoaded($event: any) {
-    this.map = $event as Map;
-    this.map.resize();
-  }
+  // mapLoaded($event: any) {
+  //   this.map = $event as Map;
+  //   this.map.resize();
+  // }
 
 
 }
