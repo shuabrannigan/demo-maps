@@ -18,12 +18,12 @@ export class LinearReferenceMapService extends AbstractBaseMapService {
     public readonly random: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     public random$: Observable<boolean> = this.random.asObservable();
     
-    override bounds$(): Observable<any> {
+    bounds$(): Observable<any> {
         return this.store.select(
             fromGeoFeatureCollectionFeature.selectGpsTrackAsBbox
           );
     }
-    override sources$(): Observable<any> {
+    sources$(): Observable<any> {
        return combineLatest([this.show$, this.random$], (show, random) => ({
         show,
         random,
@@ -38,7 +38,7 @@ export class LinearReferenceMapService extends AbstractBaseMapService {
         )
       );
     }
-    override layers(): MapboxLayer[] {
+    layers(): MapboxLayer[] {
         return [
             ...this.mapboxLayerService.baseLayers,
             {

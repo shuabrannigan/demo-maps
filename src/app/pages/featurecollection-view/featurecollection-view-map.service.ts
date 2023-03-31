@@ -11,13 +11,13 @@ export class FeatureCollectionViewMapService extends AbstractBaseMapService {
     constructor(store: Store, private mapboxLayerService: MapboxLayersService) {
         super(store)
     }
-    override bounds$(): Observable<any> {
+    bounds$(): Observable<any> {
         return this.store.select(fromGeoFeatureCollectionFeature.selectMapBoundsFromFeatureCollection)
     }
-    override sources$(): Observable<any> {
+    sources$(): Observable<any> {
        return this.store.select(fromGeoFeatureCollectionFeature.selectFeatureCollection)
     }
-    override layers(): MapboxLayer[] {
+    layers(): MapboxLayer[] {
         return [
             ...this.mapboxLayerService.baseLayers,
             {
