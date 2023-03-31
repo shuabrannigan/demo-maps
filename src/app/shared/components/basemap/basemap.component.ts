@@ -64,9 +64,6 @@ export class BaseMapComponent extends AbstractBaseMapComponent {
   override sources$: Observable<any> | undefined;
   override layers: MapboxLayer[] | undefined;
 
-  constructor() {
-    super();
-  }
   ngOnInit() {
     this.bounds$ = this.baseMapService.bounds$();
     this.sources$ = this.baseMapService.sources$();
