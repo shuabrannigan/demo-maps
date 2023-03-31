@@ -50,17 +50,17 @@ export class FeatureCollectionViewService extends MapboxLayersService implements
     input.click()
   }
 
-  handleSetFeatureCollection(featureCollectionString: string) {
-    try {
-      let fc = JSON.parse(featureCollectionString)
-      fc = featureCollection([...fc.features])
-      this.setFeatureCollection(fc)
-      this.error.next(false)
-    } catch (e) {
-      console.log(e)
-      this.error.next(true)
-    }
-  }
+  // handleSetFeatureCollection(featureCollectionString: string) {
+  //   try {
+  //     let fc = JSON.parse(featureCollectionString)
+  //     fc = featureCollection([...fc.features])
+  //     this.setFeatureCollection(fc)
+  //     this.error.next(false)
+  //   } catch (e) {
+  //     console.log(e)
+  //     this.error.next(true)
+  //   }
+  // }
 }
 
 async function readGeoJsonFile(file: File) {

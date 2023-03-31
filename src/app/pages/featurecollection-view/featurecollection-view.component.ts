@@ -12,19 +12,8 @@ import { FeatureCollectionViewMapService } from './featurecollection-view-map.se
 export class FeaturecollectionViewComponent {
   constructor(public fcvs: FeatureCollectionViewService, public mapService: FeatureCollectionViewMapService) {}
 
-  formInput: Observable<string> =  this.fcvs.getFeatureCollectionAsJson$();
-  error$: Observable<boolean> = this.fcvs.error$
 
-  codeMirrorOptions: any = {
-    theme: 'idea',
-    mode: 'application/geo+json',
-    lineNumbers: true,
-    lineWrapping: true,
-    foldGutter: true,
-    gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter', 'CodeMirror-lint-markers'],
-    autoCloseBrackets: true,
-    matchBrackets: true,
-    lint: true
-  };
+
+
 
 }

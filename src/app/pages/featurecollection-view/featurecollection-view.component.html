@@ -7,14 +7,5 @@
 </mat-toolbar>
 <div class="container">
     <app-basemap-component [baseMapService]="mapService"></app-basemap-component>
-    <div data-test="interface" class="interface">
-        <p class="error-message" *ngIf="error$ | async">Error</p>
-        <button mat-flat-button color="primary" (click)="this.fcvs.loadFeatureCollectionFromFile()">Load</button>
-        <ngx-codemirror
-        class="codemirror"
-        [ngModel]="formInput | async"
-        (ngModelChange)="this.fcvs.handleSetFeatureCollection($event)"
-        [options]="codeMirrorOptions"
-        ></ngx-codemirror>
-    </div>
+    <app-geojson-input></app-geojson-input>
 </div>
