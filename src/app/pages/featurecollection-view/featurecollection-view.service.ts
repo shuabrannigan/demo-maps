@@ -1,20 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { BBox, featureCollection, FeatureCollection } from '@turf/turf';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { featureCollection, FeatureCollection } from '@turf/turf';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { MapboxLayersService } from 'src/app/shared/services/map-layers.service';
 import {
   fromGeoFeatureCollectionFeature
 } from 'src/app/store/geo-features/geo.selectors';
-import { MapboxLayer } from 'src/app/types/mapbox.interface';
 import * as geoActions from '@store/geo-features/geo.actions'
 
 export interface FeatureCollectionViewerServiceModel {
-  getFeatureCollection$(): Observable<FeatureCollection>
   getFeatureCollectionAsJson$(): Observable<string>
-  selectMapBounds$(): Observable<BBox>
   setFeatureCollection(featureCollection: FeatureCollection): void
-  getLayers(): MapboxLayer[]
   loadFeatureCollectionFromFile(): void
   readonly error: BehaviorSubject<boolean>
   error$: Observable<boolean> 
@@ -22,41 +18,19 @@ export interface FeatureCollectionViewerServiceModel {
 
 @Injectable()
 export class FeatureCollectionViewService extends MapboxLayersService implements FeatureCollectionViewerServiceModel {
-  constructor(private store: Store) {
-    super();
+  constructor(public store: Store) {
+    super()
   }
 
   public readonly error: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
   error$: Observable<boolean> = this.error.asObservable()
 
-  getFeatureCollection$(): Observable<FeatureCollection> {
-    return this.store.select(fromGeoFeatureCollectionFeature.selectFeatureCollection);
-  }
-
   getFeatureCollectionAsJson$(): Observable<string> {
     return this.store.select(fromGeoFeatureCollectionFeature.selectFeatureCollectionAsJson);
   }
 
-  selectMapBounds$(): Observable<BBox> {
-    return this.store.select(fromGeoFeatureCollectionFeature.selectMapBoundsFromFeatureCollection)
-  }
-
   setFeatureCollection(featureCollection: FeatureCollection): void {
     this.store.dispatch(geoActions.setCurrentFeatureCollection({featureCollection}))
-  }
-
-  getLayers(): MapboxLayer[] {
-    return [
-      ...this.baseLayers,
-      {
-        id: 'geo-feature-polygon',
-        type: 'line',
-        source: 'geo-features',
-        layout: this.style.polygon.layout,
-        paint: this.style.polygon.paint,
-        filter: ['all', ['==', '$type', 'Polygon']],
-      },
-    ];
   }
 
   async loadFeatureCollectionFromFile() {
@@ -76,17 +50,17 @@ export class FeatureCollectionViewService extends MapboxLayersService implements
     input.click()
   }
 
-  handleSetFeatureCollection(featureCollectionString: string) {
-    try {
-      let fc = JSON.parse(featureCollectionString)
-      fc = featureCollection([...fc.features])
-      this.setFeatureCollection(fc)
-      this.error.next(false)
-    } catch (e) {
-      console.log(e)
-      this.error.next(true)
-    }
-  }
+  // handleSetFeatureCollection(featureCollectionString: string) {
+  //   try {
+  //     let fc = JSON.parse(featureCollectionString)
+  //     fc = featureCollection([...fc.features])
+  //     this.setFeatureCollection(fc)
+  //     this.error.next(false)
+  //   } catch (e) {
+  //     console.log(e)
+  //     this.error.next(true)
+  //   }
+  // }
 }
 
 async function readGeoJsonFile(file: File) {

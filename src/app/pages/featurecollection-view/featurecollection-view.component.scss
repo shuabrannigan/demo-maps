@@ -2,41 +2,18 @@
     position: fixed;
     display: flex;
 
-    .map-wrapper {
+    app-basemap-component {
         width: 75vw;
         height: 100vh;
         position: relative;
-
-        mgl-map {
-            height: 100%;
-            width: 100%;
-            position: relative;
-        }
     }
 
-    .interface {
+    app-geojson-input {
 
         background-color: #ddd;
         width: 25vw;
         height: 100vh;
         position: relative;
 
-        button {
-            display: flex;
-            margin: 0.5rem auto;
-        }
-
-        .error-message {
-            text-align: center;
-            color: #f00;
-            padding: 1rem;
-            font-weight: bold;
-        }
-
-        .codemirror {
-            width: -webkit-fill-available;
-            height: -webkit-fill-available;
-            
-        }
     }
 }
