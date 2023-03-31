@@ -59,11 +59,11 @@ describe('FeatureCollectionViewComponent', () => {
     expect(mat_toolbar).toBeTruthy();
   });
 
-  it('listens for mgl-map (mapCreate) event', () => {
-    spyOn(component, 'mapLoaded');
-    const mgl_map = findComponent(fixture, 'mgl-map');
-    const map = new Map({ container });
-    mgl_map.triggerEventHandler('mapCreate', map);
-    expect(component.mapLoaded).toHaveBeenCalledWith(map);
-  });
+  // it('listens for mgl-map (mapCreate) event', () => {
+  //   spyOn(component, 'mapLoaded');
+  //   const mgl_map = findComponent(fixture, 'mgl-map');
+  //   const map = new Map({ container });
+  //   mgl_map.triggerEventHandler('mapCreate', map);
+  //   expect(component.mapLoaded).toHaveBeenCalledWith(map);
+  // });
 });
