@@ -6,11 +6,14 @@ import { MaterialModule } from './material.module';
 import { MapboxLayersService } from './services/map-layers.service';
 import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { BaseMapComponent } from './components/basemap/basemap.component';
+import { AbstractBaseMapService } from './components/basemap/abstract-basemap';
+import { BaseMapService } from './components/basemap/basemap.service';
 
 
 @NgModule({
   imports: [CommonModule, MaterialModule, NgxMapboxGLModule, CodemirrorModule],
-  declarations: [],
+  declarations: [BaseMapComponent],
   exports: [
     CommonModule,
     FormsModule,
@@ -19,7 +22,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MaterialModule,
     NgxMapboxGLModule,
     CodemirrorModule,
+    BaseMapComponent,
   ],
-  providers: [MapboxLayersService],
+  providers: [
+    MapboxLayersService,
+    { provide: AbstractBaseMapService, useClass: BaseMapService },
+  ],
 })
 export class SharedModule {}
