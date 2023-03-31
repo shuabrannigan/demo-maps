@@ -11,6 +11,7 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { MaterialModule } from 'src/app/shared/material.module';
 import { findComponent } from 'src/app/shared/misc/find_component';
 import { FeaturecollectionViewComponent } from './featurecollection-view.component';
+import { MapboxLayersService } from 'src/app/shared/services/map-layers.service';
 
 describe('FeatureCollectionViewComponent', () => {
   let component: FeaturecollectionViewComponent;
@@ -27,7 +28,7 @@ describe('FeatureCollectionViewComponent', () => {
         MaterialModule,
       ],
       declarations: [FeaturecollectionViewComponent],
-      providers: [provideMockStore({})],
+      providers: [provideMockStore({}), MapboxLayersService],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
@@ -44,13 +45,13 @@ describe('FeatureCollectionViewComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('renders mgl-map', () => {
-    const mgl_map = findComponent(fixture, 'mgl-map');
+  it('renders app-basemap-component', () => {
+    const mgl_map = findComponent(fixture, 'app-basemap-component');
     expect(mgl_map).toBeTruthy();
   });
 
-  it('renders ngx-codemirror', () => {
-    const ngx_codemirror = findComponent(fixture, 'ngx-codemirror');
+  it('renders app-geojson-input', () => {
+    const ngx_codemirror = findComponent(fixture, 'app-geojson-input');
     expect(ngx_codemirror).toBeTruthy();
   });
 
