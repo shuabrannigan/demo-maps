@@ -6,7 +6,7 @@
 
 </mat-toolbar>
 <div class="container">
-    <app-basemap-component [baseMapService]="fcms"></app-basemap-component>
+    <app-basemap-component [baseMapService]="mapService"></app-basemap-component>
     <div data-test="interface" class="interface">
         <p class="error-message" *ngIf="error$ | async">Error</p>
         <button mat-flat-button color="primary" (click)="this.fcvs.loadFeatureCollectionFromFile()">Load</button>

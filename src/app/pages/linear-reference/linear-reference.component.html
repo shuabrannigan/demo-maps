@@ -8,7 +8,7 @@
 
 </mat-toolbar>
 <div class="container">
-    <app-basemap-component [baseMapService]="lrms"></app-basemap-component>
+    <app-basemap-component [baseMapService]="mapService"></app-basemap-component>
     <div class="overlay">
         <h2>Legend</h2>
         <div class="overlay-item" *ngFor="let item of legend$ | async">
@@ -16,11 +16,11 @@
             <p>{{ item.title }}</p>
         </div>
         <div class="overlay-buttons">
-            <button data-test="gps" mat-flat-button color="primary" aria-label="Example icon button with a home icon" (click)="this.lrms.showPath()"> <span>Show Gps Path</span>
-                <mat-icon *ngIf="this.lrms.show$ | async">checkmark</mat-icon>
+            <button data-test="gps" mat-flat-button color="primary" aria-label="Example icon button with a home icon" (click)="this.mapService.showPath()"> <span>Show Gps Path</span>
+                <mat-icon *ngIf="this.mapService.show$ | async">checkmark</mat-icon>
             </button>
-            <button data-test="random" mat-flat-button color="primary" aria-label="Example icon button with a home icon" (click)="this.lrms.useRandom()"> <span>Use Random Data</span>
-                <mat-icon *ngIf="this.lrms.random$ | async" >checkmark</mat-icon>
+            <button data-test="random" mat-flat-button color="primary" aria-label="Example icon button with a home icon" (click)="this.mapService.useRandom()"> <span>Use Random Data</span>
+                <mat-icon *ngIf="this.mapService.random$ | async" >checkmark</mat-icon>
             </button>
         </div>
     </div>

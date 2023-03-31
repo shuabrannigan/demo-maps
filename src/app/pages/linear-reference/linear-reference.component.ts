@@ -1,11 +1,7 @@
-import { Component } from '@angular/core';
-import { BBox } from '@turf/turf';
-import { Map } from 'mapbox-gl';
-import { Observable} from 'rxjs';
-import { MapboxLayer } from 'src/app/types/mapbox.interface';
+import { Component, Inject } from '@angular/core';
+import { Observable } from 'rxjs';
 import { LinearReferenceLegendService } from './linear-reference.service';
 import { LinearReferenceMapService } from './linear-reference-map.service';
-import { AbstractBaseMapService } from 'src/app/shared/components/basemap/abstract-basemap';
 
 @Component({
   selector: 'app-linear-reference',
@@ -16,7 +12,7 @@ import { AbstractBaseMapService } from 'src/app/shared/components/basemap/abstra
 export class LinearReferenceComponent {
   constructor(
     public legendService: LinearReferenceLegendService,
-    public lrms: LinearReferenceMapService
+    public mapService: LinearReferenceMapService
   ) {}
   legend$: Observable<any[]> = this.legendService.selectLegend$();
 }

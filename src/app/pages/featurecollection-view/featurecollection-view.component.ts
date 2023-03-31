@@ -1,8 +1,7 @@
-import { Component, Inject, Optional } from '@angular/core';
+import { Component } from '@angular/core';
 import { FeatureCollectionViewService } from './featurecollection-view.service';
 import { Observable } from 'rxjs';
 import { FeatureCollectionViewMapService } from './featurecollection-view-map.service';
-import { AbstractBaseMapService } from 'src/app/shared/components/basemap/abstract-basemap';
 
 @Component({
   selector: 'app-featurecollection-view',
@@ -11,7 +10,7 @@ import { AbstractBaseMapService } from 'src/app/shared/components/basemap/abstra
   providers: [FeatureCollectionViewService, FeatureCollectionViewMapService],
 })
 export class FeaturecollectionViewComponent {
-  constructor(public fcvs: FeatureCollectionViewService, @Inject(FeatureCollectionViewMapService) public fcms: AbstractBaseMapService) {}
+  constructor(public fcvs: FeatureCollectionViewService, public mapService: FeatureCollectionViewMapService) {}
 
   formInput: Observable<string> =  this.fcvs.getFeatureCollectionAsJson$();
   error$: Observable<boolean> = this.fcvs.error$
