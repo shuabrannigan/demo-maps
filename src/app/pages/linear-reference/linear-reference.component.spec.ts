@@ -40,15 +40,15 @@ describe('LinearReferenceComponent', () => {
 
     })
 
-    // it('renders overlay component correctly', () => {
-    //     const overlay_container = findComponent(fixture, '.overlay')
-    //     const overlay_item = fixture.nativeElement.querySelectorAll('.overlay-item')
-    //     const gps_button = findComponent(fixture, '[data-test="gps"]')
-    //     const random_button = findComponent(fixture, '[data-test="random"]')
+    it('renders legend overlay component correctly', () => {
+        const overlay_container = findComponent(fixture, '.overlay')
+        const overlay_item = fixture.nativeElement.querySelectorAll('.overlay-item')
+        const gps_button = findComponent(fixture, '[data-test="gps"]')
+        const random_button = findComponent(fixture, '[data-test="random"]')
 
-    //     expect(overlay_container).withContext('.overlay').toBeTruthy()
-    //     expect(overlay_item.length).withContext('.overlay-item').toBeGreaterThan(0)
-    //     expect(gps_button).withContext('GPS Button').toBeTruthy()
-    //     expect(random_button).withContext('Random Button').toBeTruthy()
-    // })
+        expect(overlay_container).withContext('.overlay').toBeTruthy()
+        expect(overlay_item.length).withContext('.overlay-item').toBeGreaterThan(0)
+        expect(gps_button).withContext('GPS Button').toBeTruthy()
+        expect(random_button).withContext('Random Button').toBeTruthy()
+    })
 })
