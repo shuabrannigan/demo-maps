@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
     template: `
     <div data-test="interface" class="interface">
     <p class="error-message" *ngIf="error$ | async">Error</p>
-    <button mat-flat-button color="primary" (click)="this.inputService.loadDataFromFile()">Load</button>
+    <button data-test="loadFileButton" mat-flat-button color="primary" (click)="this.inputService.loadDataFromFile()">Load</button>
     <ngx-codemirror
     class="codemirror"
     [ngModel]="formInput | async"

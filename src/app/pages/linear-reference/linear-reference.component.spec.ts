@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from "@angular/core/testing"
 import { provideMockStore } from "@ngrx/store/testing"
 import { findComponent } from "src/app/shared/misc/find_component"
 import { LinearReferenceComponent } from "./linear-reference.component"
+import { MapboxLayersService } from "src/app/shared/services/map-layers.service"
 
 
 
@@ -15,7 +16,7 @@ describe('LinearReferenceComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [LinearReferenceComponent],
-            providers: [provideMockStore({})],
+            providers: [provideMockStore({}), MapboxLayersService],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents()
     })
@@ -32,14 +33,14 @@ describe('LinearReferenceComponent', () => {
     })
 
     it('renders children', () => {
-        const mgl_map = findComponent(fixture, 'mgl-map')
+        const basemap = findComponent(fixture, 'app-basemap-component');
         const mat_toolbar = findComponent(fixture, 'mat-toolbar')
-        expect(mgl_map).withContext('mgl-mapbox').toBeTruthy()
+        expect(basemap).withContext('mgl-mapbox').toBeTruthy();
         expect(mat_toolbar).withContext('mat-toolbar').toBeTruthy()
 
     })
 
-    it('renders overlay component correctly', () => {
+    it('renders legend overlay component correctly', () => {
         const overlay_container = findComponent(fixture, '.overlay')
         const overlay_item = fixture.nativeElement.querySelectorAll('.overlay-item')
         const gps_button = findComponent(fixture, '[data-test="gps"]')
